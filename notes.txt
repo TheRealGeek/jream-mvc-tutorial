@@ -1,0 +1,16 @@
+Libs dir contain the class definitions
+
+'controllers' Directory 
+    Contains the controllers (similar to routers in JS, from what I understand ) for each one.
+    Each of these files contains a specific class for each file, which extends the 'Controller' class  
+        ie. class Index from controllers/index.php extends class Controller from libs/class.controller.php
+    The new class CLASSNAME inside the controllers/PAGENAME.php then tells the controller class to use the View class from libs/class.view.php, which in turn routes the program to look in the View directory for a file called views/URLNAME.php and render that.
+Views directory
+    Contains what the file is rendering. 
+    In this particular project, the way we have it all routed, the View class renders 3 files by default: 
+        /views/header.php
+        /views/PAGENAME/index.php
+        /views/footer.php
+    In the order listed above. The middle file is where the value of the <div id="content"></div> exists, and where the bulk of the page content comes from. 
+        In the header.php file, it automatically loads the styling from views/public/css/default.css, which in turn applies it to each that uses the header.php file by default. 
+
