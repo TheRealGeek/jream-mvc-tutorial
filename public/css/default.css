@@ -1,0 +1,22 @@
+body{
+    background: gray;
+ 
+
+}
+
+#header {
+    padding: 1.423em;
+    background: #f9d4a4c1;
+}
+#content {
+    background: gray;
+    padding: 1.423em;
+    color: antiquewhite;
+
+}
+
+
+#footer {
+    padding: 1.423em;
+    background: darkgrey;
+}
