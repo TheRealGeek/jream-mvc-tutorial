@@ -7,10 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/default.css">
-    <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.js">
-    </script>
-    <script type="text/javascript" src="<?php echo URL; ?>public/js/custom.js"></script>
-
+    <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.js"></script>
 </head>
 
 <body>
@@ -19,7 +16,9 @@
         <br>
         <a href="<?php echo URL; ?>index"> Home </a>
         <a href="<?php echo URL; ?>help"> Help </a>
-        <a href="<?php echo URL; ?>login"> Login </a>
+        <a href="<?php echo URL; ?>login"> Login</a>
     </div>
-
+    <script>
+        console.log('Header file is loading fine')
+    </script>
     <div id="content">

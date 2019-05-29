@@ -13,4 +13,5 @@ Views directory
         /views/footer.php
     In the order listed above. The middle file is where the value of the <div id="content"></div> exists, and where the bulk of the page content comes from. 
         In the header.php file, it automatically loads the styling from views/public/css/default.css, which in turn applies it to each that uses the header.php file by default. 
-
+Models should be the only place that the database is being accessed
+    

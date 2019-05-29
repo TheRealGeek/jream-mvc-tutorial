@@ -3,7 +3,7 @@ class View
 {
     function __construct()
     {
-        // echo 'This is the view.';
+        // echo 'This is the view class'; //working
     }
     public function render($name, $noHeaderFooter = false, $noHeader = false, $noFooter = false)//options aren't working atm 05/23 @1204 MVC pt2 
     {//usage should be "render('URL', 0/1 DEFAULT:0, 0/1 DEFAULT:0, 0/1 DEFAULT:0); " in the 
