@@ -6,6 +6,7 @@ class Login_Model extends Model
     {
         parent::__construct();
     }
+    
     public function run()
     {
         $sth = $this->db->prepare("SELECT id FROM users WHERE 
@@ -16,11 +17,22 @@ class Login_Model extends Model
         ));
 
         // $data = $sth->fetchAll();
-         $count = $sth->rowCount();
+    
+        $count = $sth->rowCount();
          if ($count >0){
-             //login
+            //login
+            Session::init();
+            Session::set('loggedIn',true);
+            $url = URL;
+            $route = 'dashboard';
+            $h = "location:$url$route";
+            header("$h"); //should be http://localhost/mvc/dashboard
          }else{
-             //show an error
+             $url = URL;
+             $route= 'login';
+             $h="location:$url$route";
+             header("$h"); //should be http://localhost/mvc/dashboard
+             //show an error 
          }
     }
 }

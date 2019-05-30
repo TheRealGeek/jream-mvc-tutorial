@@ -1,9 +1,9 @@
 </div>
 <hr />
 <div id="footer">Footer</div>
-<script>
+<!-- <script>
     console.log('Footer file is loading fine')
-</script>
+</script> -->
 </body>
 
 </html>

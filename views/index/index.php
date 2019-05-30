@@ -1,4 +1,4 @@
 This is the main page!
-<script>
+<!-- <script>
     console.log('Index file is loading fine')
-</script>
+</script> -->
