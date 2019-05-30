@@ -19,4 +19,4 @@ class Session{
         // unset($_SESSION); //He will leave this alone for now, but something like this should be done.
         session_destroy();
     }
-}
+} 
