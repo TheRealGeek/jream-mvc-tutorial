@@ -4,4 +4,8 @@
 <form id="randomInsert" action="<?php echo URL; ?>dashboard/xhrInsert/" method="post">
     <input type="text" name="text" id="">
     <input type="submit" value="Submit">
-</form>
+</form> 
+
+<div id="listInsert">
+ 
+</div>

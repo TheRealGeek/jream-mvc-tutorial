@@ -24,4 +24,7 @@ class Dashboard extends Controller
     function xhrInsert(){ //xml http request vs ajax
         $this->model->xhrInsert(); 
     }
+    function xhrGetListings(){ //xml http request vs ajax
+        $this->model-> xhrGetListings(); 
+    }
 }
