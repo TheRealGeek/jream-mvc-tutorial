@@ -10,6 +10,7 @@ class Dashboard extends Controller
             header('location: login');
             exit;
         }
+        $this->view->js = array('dashboard/js/default.js'); //setting a js variable to the view //Moved to line 7
     }
     function index()
     {
@@ -20,5 +21,7 @@ class Dashboard extends Controller
         header('location: ../login');
         exit; 
     }
-
+    function xhrInsert(){ //xml http request vs ajax
+        $this->model->xhrInsert(); 
+    }
 }
