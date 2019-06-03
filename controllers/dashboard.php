@@ -27,4 +27,7 @@ class Dashboard extends Controller
     function xhrGetListings(){ //xml http request vs ajax
         $this->model-> xhrGetListings(); 
     }
+    function xhrDeleteListing(){ //xml http request vs ajax
+        $this->model-> xhrDeleteListing(); 
+    }
 }
