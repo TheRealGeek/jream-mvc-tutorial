@@ -24,10 +24,8 @@ class Dashboard_Model extends Model
         echo json_encode($data);
     }
     public function xhrDeleteListing(){
-        $id = $_POST['id'];
-        $sth = $this->db->prepare('DELETE FROM data WHERE id = "'.$id.'"  ');
-        $sth->execute();
-
-    
+        $id = $_POST['id']; //reads the post request
+        $sth = $this->db->prepare('DELETE FROM data WHERE id = "'.$id.'"  ');//uses the ID in the post request to prepare a delete query
+        $sth->execute();//executes the prepared statement    
     }
 }
