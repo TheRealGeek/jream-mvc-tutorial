@@ -167,3 +167,5 @@ This documents changes that were not done in the code, or provide more descripti
                             ->cleaned up the log and renamed it to the correct file extension and 
                             name
                             
+                - GIT - Committed.
+
