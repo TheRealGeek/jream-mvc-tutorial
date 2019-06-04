@@ -1,19 +1,15 @@
 <?php
-//use an autoloader! //he mentioned spl autoloader is a good one
-require 'libs/class.bootstrap.php';
-require 'libs/class.controller.php';
-require 'libs/class.model.php';
-require 'libs/class.view.php';
-
-//Library
-require 'libs/class.database.php';
-require 'libs/class.session.php';
-require 'libs/class.hash.php';
-
+//use an autoloader!
 
 require 'config/paths.php';
 require 'config/database.php';
 require 'config/constants.php';
+
+//Also spl autoload_register take a look at it if you like
+function __autoload($class){
+    require LIBS . "class.$class.php";
+}
+
 
 
 $app = new Bootstrap();

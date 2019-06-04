@@ -25,10 +25,12 @@ class Login_Model extends Model
             Session::init();
             Session::set('role',$data['role']);
             Session::set('loggedIn',true);
-            $url = URL;
-            $route = 'dashboard';
-            $h = "location:$url$route";
-            header("$h"); //should be http://localhost/mvc/dashboard
+            // $url = URL;
+            // $route = 'dashboard';
+            // $h = "location:$url$route";
+            // header("$h"); //should be http://localhost/mvc/dashboard
+            header('location: ../dashboard');
+
          }else{
              $url = URL;
              $route= 'login';

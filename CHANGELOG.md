@@ -230,9 +230,45 @@ were.
                                 before sending the information to the user model.
 
                  - GIT - Committed.  @1458                 
-                 - GIT - Pushed.  @1458                 
+                 - GIT - Pushed.  @1458  
 
+            @1220
+    Part 6: Autoloaders
+    https://youtu.be/JmPgJXS7uxA?list=PL7A20112CF84B2229&t=1002
 
+                    m   index.php - Modified
+                            ->Added an autoloader using the default __autoload() function
+                                NOTE: The class names need to be the same as the file name. Pay attention to the case as well, because in linux and some versions of the macOS, dir names are case sensitive.
+                                
+                                    Because my class names in my /lib/ dir are different than his, I had to put 
+                                    ```
+                                        function __autoload($class){
+                                            require "libs/class.$class.php";
+                                        }
+                                    ```
+                                    instead of 
+                                    ```
+                                        function __autoload($class){
+                                            require "libs/$class.php";
+                                        }
+                                    ```
+                                    in order for the loader to work correctly.
+                                        my class names:
+                                            class.[classname].php
+                                        JREAM class names:
+                                            [Classname].php
+
+                    m   config/paths.php - Modified
+                            ->defined constant LIBS for the 'libs/' pathname
+                  
+                    m   index.php - Modified
+                            ->changed the code to use the LIBS constant in the require 
+                  
+                    m   libs/class.database.php - Modified
+                            ->changed the constants to variables so that we can reuse the same code in other apps.
+  
+                    m   libs/class.models.php - Modified
+                            ->changed the Database class creation to pass the db constants from config/database.php to the construct of Database at /libs/class.database.php as variables of the same name
 
         
                             
