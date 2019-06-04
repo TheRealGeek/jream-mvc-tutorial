@@ -201,7 +201,7 @@ were.
             @1220
                     m   index.php - Modified
                             ->Included the hash class file and the new constants.php file
-                            
+
                     +   /config/constants.php - New File
                             -> Created a site-wide constant file
                                 -> Added constant HASH_KEY with the value of 'catsFLYhigh2000miles' to 
@@ -210,10 +210,28 @@ were.
                                     the encryption algorithm.
 
                     m   index.php - Modified
-                            ->Required the hash class file and the new constants.php file              
-                    
+                            ->Required the hash class file and the new constants.php file
 
-        
+                 - GIT - Committed. @1350                  
+
+                    m   model/login_model.php - Modified
+                            ->Changed the run() password to use the new hash class for new user creation
+
+                    m   /config/constants.php - Modified
+                        -> Created a general hash constant and a password hash constant
+
+                    m   models/user_model.php - Modified
+                            -> updated the hash class salt key call to the new HASH_PASSWORD_KEY                                    
+                    m   models/login_model.php - Modified
+                            -> updated the hash class salt key call to the new HASH_PASSWORD_KEY
+
+                    m   controllers/user.php - Modified
+                            -> updated the password fields of create() and editSave() to not encrypt 
+                                before sending the information to the user model.
+
+                 - GIT - Committed.  @1458                 
+                 - GIT - Pushed.  @1458                 
+
 
 
         

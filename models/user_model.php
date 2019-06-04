@@ -26,7 +26,7 @@ class User_Model extends Model
         VALUES(:login,:password,:role) ');
         $sth->execute(array(
             ':login' => $data['login'],
-            ':password' => md5($data[ 'password']),
+            ':password' => Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
             ':role' => $data[ 'role']
         ));
     }
@@ -41,7 +41,10 @@ class User_Model extends Model
          `password` = :password,
          `role` = :role
          WHERE id = :id');
-         $array=array(':id'=>$id,':login'=>$data['login'],':password' =>$data['password'],':role' => $data['role']);
+         $array=array(':id'=>$id,
+                      ':login'=>$data['login'],
+                       ':password'=>Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
+                      ':role' => $data['role']);
         $sth->execute($array);
 
         // $sth->execute(array(

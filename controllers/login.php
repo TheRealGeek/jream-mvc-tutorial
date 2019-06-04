@@ -3,7 +3,7 @@
         function __construct(){
             parent::__construct();
         }
-        function index(){       
+        function index(){
             $this->view->render('login/index');  
    
         }
