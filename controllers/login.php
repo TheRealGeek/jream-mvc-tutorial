@@ -5,7 +5,8 @@
         }
         function index(){       
             $this->view->render('login/index');  
-            return;      }
+   
+        }
         function run(){
             $this->model->run();
         }

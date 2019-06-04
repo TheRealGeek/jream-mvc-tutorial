@@ -1,14 +1,26 @@
+CHANGELOG
 This is the changelog, starting from part 5 of the MVC.
-This documents changes that were not done in the code, or provide more description for the ones that were.
+This documents changes that were not done in the code, or provide more description for the ones that 
+were.
 
-03.06.2019  
-            @1314 
+03.06.2019 @1314 
+    Part 5: Roles, User Management and Error Logging
+    https://www.youtube.com/watch?v=JmPgJXS7uxA&list=PL7A20112CF84B2229&index=5
+
+            
                 - VSC - added .changelog
+
                 - DB - Added 'role' field the users table in the db
                     datatype: ENUM ('default', 'admin', 'owner') and set the default value to 'default')
+
                 - DB - modified user 'Michael' and changed his role value to 'owner'
-                - DB - added user 'Mike' and changed his role value to 'owner'. Password is the same as the 'Michael' user
-                - VSC - imported JREAM's css code to public/css/default.css to incorporate his style changes. 
+
+                - DB - added user 'Mike' and changed his role value to 'owner'. Password is the same as 
+                        the 'Michael' user
+
+                - VSC - imported JREAM's css code to public/css/default.css to incorporate his style 
+                        changes. 
+
                     changed the default text color back to the default of black
                 -VSC- added the following to models/login_model.php
                 ```
@@ -148,6 +160,7 @@ This documents changes that were not done in the code, or provide more descripti
 
                     m    controllers/user.php - Modified
                             ->Added code to the index() function
+
                     m   views/user/index.php - Modified
                             -> Added code to query the database and list all of the users in an 
                             html table, as well as giving the option edit and delete individual 
@@ -155,14 +168,18 @@ This documents changes that were not done in the code, or provide more descripti
                             users to the database directly from the website via the users page. 
                             only users defined as owners can access this page, and must be
                             logged in.
+
                     m    controllers/user.php - Modified
                             ->added code to the create() function to allow post actions
+
                     m    models/user_model.php - Modified 
                             -> Added a create() function to reflect the create() function in 
                             controllers/user.php
+
                     m   index.php - Modified
                             ->Removed the code to flag errors from here, placed it at the bottom of 
                             the same file and commented it out
+
                    m r  .changelog-->CHANGELOG.md - Modified and Renamed
                             ->cleaned up the log and renamed it to the correct file extension and 
                             name
@@ -179,6 +196,23 @@ This documents changes that were not done in the code, or provide more descripti
                                 salt key and returns the salted and hashed data 
                 
                 - GIT - Committed @1219
+                        Pushed  @1219
+                    
+            @1220
+                    m   index.php - Modified
+                            ->Included the hash class file and the new constants.php file
+                            
+                    +   /config/constants.php - New File
+                            -> Created a site-wide constant file
+                                -> Added constant HASH_KEY with the value of 'catsFLYhigh2000miles' to 
+                                    be used as the salt key. Now, all we have to do is use the HASH_KEY 
+                                    constant, and it will load correctly on its own. Still using md5 as 
+                                    the encryption algorithm.
+
+                    m   index.php - Modified
+                            ->Required the hash class file and the new constants.php file              
+                    
+
         
 
 

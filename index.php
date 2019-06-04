@@ -8,10 +8,12 @@ require 'libs/class.view.php';
 //Library
 require 'libs/class.database.php';
 require 'libs/class.session.php';
+require 'libs/class.hash.php';
 
 
 require 'config/paths.php';
 require 'config/database.php';
+require 'config/constants.php';
 
 
 $app = new Bootstrap();
