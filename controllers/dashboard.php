@@ -18,7 +18,7 @@ class Dashboard extends Controller{
     }
     function logout(){
         Session::destroy();
-        header('location: ../login');
+        header('location:'. URL .'login');
         exit; 
     }
     function xhrInsert(){ //xml http request vs ajax
