@@ -39,7 +39,7 @@ This documents changes that were not done in the code, or provide more descripti
                     This adds a 'user' page if the user 'role' is 'owner'. Otherwise, it hides it.
                 - GIT - Committed.
 
-03.04.2019
+03.06.2019
             @1005 
                 Summary: 
                     VSC: Added a user controller, model, views, an edit view that is based in 
@@ -166,6 +166,22 @@ This documents changes that were not done in the code, or provide more descripti
                    m r  .changelog-->CHANGELOG.md - Modified and Renamed
                             ->cleaned up the log and renamed it to the correct file extension and 
                             name
-                            
+
                 - GIT - Committed.
+04.06.2019  @1016
+    Part 6: Password Security
+    https://www.youtube.com/watch?v=JmPgJXS7uxA&list=PL7A20112CF84B2229&index=6
+            Summary: BLANKFORNOW
+
+
+                    +   libs/class.hash.php - New File
+                            ->Created a hash class that takes in an algorithm variable, the data, and a 
+                                salt key and returns the salted and hashed data 
+                
+                - GIT - Committed @1219
+        
+
+
+        
+                            
 
