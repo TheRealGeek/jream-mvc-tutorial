@@ -270,7 +270,7 @@ were.
                     m   libs/class.models.php - Modified
                             ->changed the Database class creation to pass the db constants from config/database.php to the construct of Database at /libs/class.database.php as variables of the same name
                  - GIT - Committed.  @1623  
-        @1624
+            @1624
         Part 6: New insert and update methods 
             (to make them more universal and useful)
         https://youtu.be/JmPgJXS7uxA?list=PL7A20112CF84B2229&t=1421
@@ -283,3 +283,10 @@ were.
                              ->WHAT DO THEY DO
 
                      m   /libs/class.database.php
+
+                     Finished the setup for the insert and update fields
+05.06.2019  @1611
+        Part 7: Improving the layout, code cleanup, minor security improvements, and database wrapper improvements.
+        https://www.youtube.com/watch?v=Pz3Oj_fYMn8&list=PL7A20112CF84B2229&index=7
+
+                    
