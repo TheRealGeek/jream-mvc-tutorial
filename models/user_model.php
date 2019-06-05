@@ -26,79 +26,19 @@ class User_Model extends Model
             'password' => Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
             'role' => $data['role']
         ));
-
-        // $sth = $this->db->prepare( 'INSERT INTO users 
-        // (`login`,`password`,`role`)
-        // VALUES(:login,:password,:role) ');
-
-        // $sth->execute(array(
-        //     ':login' => $data['login'],
-        //     ':password' => Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
-        //     ':role' => $data[ 'role']
-        // ));
     }
-
-
 
     public function editSave($data) //UPDATE
     {
         $postData = array(
-                ':login'=>$data['login'],
-                ':password'=>Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
-                ':role' => $data['role']
+                'login'=>$data['login'],
+                'password'=>Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
+                'role' => $data['role']
             );
 
-       $sth = $this->db->update('users', $postData, "`id` = {$data['id']}");
-
-
- 
-
-
-        $sth->execute();
-
-        //my code
-
-        // $sth = $this->db->prepare( 'UPDATE users 
-        // SET
-        //  `login` = :login,
-        //  `password` = :password,
-        //  `role` = :role
-        //  WHERE id = :id');
-        //  $array=array(':id'=>[$id],
-        //               ':login'=>$data['login'],
-        //                ':password'=>Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
-        //               ':role' => $data['role']);
-        // $sth->execute($array);
-
-        //old code
-
-        // $sth->execute(array(
-        //     ':id' => ['id'],
-        //     ':login' => $data['login'],
-        //     ':password' => md5($data['password']),
-        //     ':role' => $data['role']
-        // ));
-
-
-
-    }
-
-
-
-
-    // public function editSave($data) //UPDATE
-    // {
-    //     $sth = $this->db->prepare('INSERT INTO users 
-    //     `login` => :login, `password` => :password,`role` => :role
-    //     WHERE id = :id
-    //     ');
-    //     $sth->execute(array(
-    //         ':id' => $data['data'],
-    //         ':login' => $data['login'],
-    //         ':password' => $data['password'],
-    //         ':role' => $data['role']
-    //     ));
-    // }
+       $this->db->update('users', $postData, "`id` = {$data['id']}");
+        }
+    
     public function delete($id) //DELETE
     {
         $sth = $this->db->prepare('DELETE FROM users WHERE id = :id');

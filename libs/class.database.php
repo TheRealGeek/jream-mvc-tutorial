@@ -19,15 +19,11 @@ class Database extends PDO
         $fieldValues = ':' . implode(', :', array_keys($data)); //:login,:password,:role
 
         $sth = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES($fieldValues)");
-// die;
+
         foreach($data as $key => $value) {
             $sth->bindValue(":$key", $value);
-            // echo $key . ' ' . $value . '</br>';
         }
-        // print_r($data);
-        // echo '<br>';
-        // print_r($sth);
-        // die;
+
         $sth->execute();//erroring on create 
     }
 
@@ -39,7 +35,7 @@ class Database extends PDO
      */
     public function update($table, $data, $where){
         ksort($data);
-        
+
         $fieldDetails = NULL;//why is this still null
         foreach ($data as $key=> $value) {
             $fieldDetails .= "`$key`=:$key,";

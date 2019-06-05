@@ -2,7 +2,7 @@
 
 <?php
 // echo '<pre>';
-print_r($this->user);
+// print_r($this->user);
 ?>
 
 
