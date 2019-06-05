@@ -23,7 +23,7 @@ class User_Model extends Model
     {
         $this->db->insert('users', array(
             'login' => $data['login'],
-            'password' => Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
+            'password' => Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
             'role' => $data['role']
         ));
     }
@@ -32,7 +32,7 @@ class User_Model extends Model
     {
         $postData = array(
                 'login'=>$data['login'],
-                'password'=>Hash::create('md5', $data['password'], HASH_PASSWORD_KEY),
+                'password'=>Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
                 'role' => $data['role']
             );
 

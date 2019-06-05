@@ -1,4 +1,4 @@
-<?php echo md5("Michael");
+<?php echo sha256("Michael");
         echo "</br>The password should be 'Michael'";?>
 <h1>Login</h1>
 <script type="text/javascript">console.log("login file is loading")</script>

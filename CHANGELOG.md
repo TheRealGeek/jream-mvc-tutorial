@@ -289,4 +289,13 @@ were.
         Part 7: Improving the layout, code cleanup, minor security improvements, and database wrapper improvements.
         https://www.youtube.com/watch?v=Pz3Oj_fYMn8&list=PL7A20112CF84B2229&index=7
 
-                    
+                    m   /libs/class.bootstrap.php
+                            ->added code to sanitize the $url variable to prevent xss attacks and unauthorized navigation                    
+
+                    m   /models/login_model, /models/login_model 
+                            ->changed the encryption from md5 to sha256 in these files
+                            ->update the users/password row in the database to have a 64 character limit and updated the individual passwords themselves.
+                    ±   config.php, /config/*
+                            ->Created a config.php and combined the contents of the config dir into it
+                            ->deleted the config/ dir and all of its contents
+                    - GIT - Committed @1705

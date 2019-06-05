@@ -5,7 +5,6 @@
 // print_r($this->user);
 ?>
 
-
 <form method="post" action="<?php echo URL; ?>user/editSave/<?php echo $this->user['id']; ?>">
     <label for="login">Login</label><input type="text" name="login" value="<?php echo $this->user['login']; ?>"><br>
     <label for="password">Password</label><input type="text" name="password" value="<?php echo $this->user['password']; ?>"><br> <!--  This is a problem. Unless the password is changed every time, the password will be rewritten each time. -->
