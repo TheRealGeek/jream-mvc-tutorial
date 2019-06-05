@@ -8,7 +8,7 @@ class User extends Controller{
 
         if ($logged == false || $role != 'owner') { //this logs out the user if they try to access an unauthorized page. I don't like this
             Session::destroy();
-            header('location: login');
+            header('location: ../login');
             exit;
         }
     }

@@ -1,6 +1,7 @@
-<h1>User</h1>
-
+<h1>User Owner Page</h1>
+<br>
 <form action="<?php echo URL; ?>user/create" method="post">
+    <div><b>Create New User:</b></div><br>
     <label for="login">Login</label><input type="text" name="login" id=""><br>
     <label for="password">Password</label><input type="text" name="password" id=""><br>
     <label for="role">Role</label>
@@ -17,7 +18,7 @@
     <tr>
         <?php
         foreach ($this->userList as $key => $value) {
-             echo '<tr>'; //table row
+            echo '<tr>'; //table row
             echo '<td>' . $value['id'] . '</td>';
             echo '<td>' . $value['login'] . '</td>';
             echo '<td>' . $value['role'] . '</td>';
