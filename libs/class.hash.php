@@ -2,7 +2,7 @@
 class Hash
 {
     /**
-     * @param string $algo The algorithm (md5, sha1, whirlpool, etc)
+     * @param string $algo The algorithm (md5, sha256, whirlpool, etc)
      * @param string $data The data to encode
      * @param string $salt The salt (This should be the same throughout the system, probably)
      * @param string string the hashed/salted data

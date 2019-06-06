@@ -9,19 +9,19 @@ class User_Model extends Model
 
     public function userList()//READ
     {
-        $sth = $this->db->prepare('SELECT id, login, role FROM users');
+        $sth = $this->db->prepare('SELECT id, login, role FROM user');
         $sth->execute();
         return $sth->fetchAll();
     }
     public function userSingleList($id)//READ
     {
-        $sth = $this->db->prepare('SELECT id, login, password, role FROM users WHERE id = :id'); 
+        $sth = $this->db->prepare('SELECT id, login, password, role FROM user WHERE id = :id'); 
         $sth->execute(array(':id' => $id));
         return $sth->fetch();
     }
-    public function create($data)//CREATE
+    public function create($data)//CREATE 
     {
-        $this->db->insert('users', array(
+        $this->db->insert('user', array(
             'login' => $data['login'],
             'password' => Hash::create('sha256', $data['password'], HASH_PASSWORD_KEY),
             'role' => $data['role']
@@ -36,13 +36,19 @@ class User_Model extends Model
                 'role' => $data['role']
             );
 
-       $this->db->update('users', $postData, "`id` = {$data['id']}");
+       $this->db->update('user', $postData, "`id` = {$data['id']}");
         }
     
     public function delete($id) //DELETE
     {
-        $sth = $this->db->prepare('DELETE FROM users WHERE id = :id');
+        $sth = $this->db->prepare('SELECT role FROM user WHERE id = :id');
         $sth->execute(array(':id' => $id));
-        //you would want to make sure that you couldn't delete the owner
+        $data = $sth->fetch();
+        if ($data['role'] == 'owner'){
+            return false;
+        } 
+        $sth = $this->db->prepare('DELETE FROM user WHERE id = :id');
+        $sth->execute(array(':id' => $id));
+    
     }
 }

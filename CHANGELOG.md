@@ -278,7 +278,7 @@ were.
                     m   /libs/class.database.php
                             ->Added two new public functions: 
                             insert($table,$data) 
-                                        &
+                                        & 
                              update($table, $data, $where)      
                              ->WHAT DO THEY DO
 
@@ -299,3 +299,13 @@ were.
                             ->Created a config.php and combined the contents of the config dir into it
                             ->deleted the config/ dir and all of its contents
                     - GIT - Committed @1705
+06.06.2019  @946
+              -DB-  m   users->user MVC table - Modified
+                            changed the 'users' table to 'user' in 
+                    m   index.php - Modified
+                            ->added an if statement to the foreach loop to not display the delete link for owners.
+                                ->NOTE: this is something I decided to do on my own. His code does not include this function.
+                    m   models/login_model - Modified
+                            -> Added code that protects user entries with the role of owner from being deleted from the data page.
+                - GIT - Committed @12:22    
+                      

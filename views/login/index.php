@@ -1,8 +1,11 @@
-<?php echo sha256("Michael");
-        echo "</br>The password should be 'Michael'";?>
-<h1>Login</h1>
-<script type="text/javascript">console.log("login file is loading")</script>
-<form action="<?php echo URL ?>login/run" method="post"> <!-- This calls a function called run() in the login model -->
+<h1>Login</h1><?php echo hash('sha256', 'Michael') . ' <----- SHA256 hashed password for owner';
+                 
+echo "</br>The password should be 'Michael'"; ?>
+<script type="text/javascript">
+    console.log("login file is loading")
+</script>
+<form action="<?php echo URL ?>login/run" method="post">
+    <!-- This calls a function called run() in the login model -->
 
     <label for="login">Login</label>
     <input type="text" name="login"> <br>

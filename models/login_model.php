@@ -10,7 +10,7 @@ class Login_Model extends Model
     public function run()
     {
         
-        $sth = $this->db->prepare("SELECT id, role FROM users WHERE 
+        $sth = $this->db->prepare("SELECT id, role FROM user WHERE 
         login = :login AND password = :password");
         $sth->execute(array(
             ':login' => $_POST['login'],
@@ -25,10 +25,6 @@ class Login_Model extends Model
             Session::init();
             Session::set('role',$data['role']);
             Session::set('loggedIn',true);
-            // $url = URL;
-            // $route = 'dashboard';
-            // $h = "location:$url$route";
-            // header("$h"); //should be http://localhost/mvc/dashboard
             header('location: ../dashboard');
 
          }else{

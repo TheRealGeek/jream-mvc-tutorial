@@ -16,15 +16,27 @@
 <hr>
 <table>
     <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Role</th>
+        <th>|</th>
+        <th>Edit</th>
+        <th>Delete</th>
         <?php
         foreach ($this->userList as $key => $value) {
             echo '<tr>'; //table row
             echo '<td>' . $value['id'] . '</td>';
             echo '<td>' . $value['login'] . '</td>';
             echo '<td>' . $value['role'] . '</td>';
-            echo '<td>
-                    <a href="' . URL . 'user/edit/' . $value['id'] . '">Edit</a>&nbsp;
-                    <a href="' . URL . 'user/delete/' . $value['id'] . '">Delete</a>' .  '</td>';
+            echo '<td> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</td>';
+            if ($value['role'] === 'owner') { //custom code, it hides the delete button for owners. This is more for aesthetics than anything; the delete function is set to ignore owners
+                echo '<td>
+                    <a href="' . URL . 'user/edit/' . $value['id'] . '">Edit</a></td>';
+            } else {
+                echo '<td>
+                    <a href="' . URL . 'user/edit/' . $value['id'] . '">Edit</a>&nbsp;</td>
+                    <td><a href="' . URL . 'user/delete/' . $value['id'] . '">Delete</a>' .  '</td>';
+            }
             echo '</tr>';
         }
         // print_r($this->userList);
