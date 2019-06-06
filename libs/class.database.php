@@ -67,10 +67,19 @@ class Database extends PDO
 
         $sth->execute();
     }
-
-
-
-
+/**
+ * Delete
+ * 
+ * @param STRING $table the table to delete from
+ * @param STRING $where The query identifier
+ * @param INTEGER $limit Query limit (default is 1) 
+ * @return INTEGER Affected Rows
+ * 
+ */
+    public function delete($table, $where, $limit = 1)
+    {
+         return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
+        }
 
 
 

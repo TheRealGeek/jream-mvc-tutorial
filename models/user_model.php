@@ -17,7 +17,7 @@ class User_Model extends Model
         // $sth->execute(array(':id' => $id));
         // return $sth->fetch();
 
-        return $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :$id', array(':id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003
+        return $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :$id', array('id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003
     }
     public function create($data)//CREATE 
     {
@@ -44,11 +44,11 @@ class User_Model extends Model
         $result =$this->db->select( 'SELECT role FROM user WHERE id = :id', array('id' => $id));
         // print_r($result);
         // die;
-        if ($result[0]['role'] == 'owner'){
+        if ($result[0]['role'] == 'owner')
             return false;
-        } 
-        $sth = $this->db->prepare('DELETE FROM user WHERE id = :id');
-        $sth->execute(array(':id' => $id));
+        $this->db->delete('user', "id ='$id'");
+        // $sth = $this->db->prepare('DELETE FROM user WHERE id = :id');
+        // $sth->execute(array(':id' => $id));
     
     }
 }
