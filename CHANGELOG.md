@@ -302,10 +302,19 @@ were.
 06.06.2019  @946
               -DB-  m   users->user MVC table - Modified
                             changed the 'users' table to 'user' in 
-                    m   index.php - Modified
+              -VSC-    m   views/user/index.php - Modified
                             ->added an if statement to the foreach loop to not display the delete link for owners.
                                 ->NOTE: this is something I decided to do on my own. His code does not include this function.
                     m   models/login_model - Modified
                             -> Added code that protects user entries with the role of owner from being deleted from the data page.
                 - GIT - Committed @12:22    
-                      
+            @1222
+                    m   libs/class.database.php    
+                            ->Added a select method in the database class
+                    m   models/userModel.php    
+                            ->Modified the userList query to use the new select() function
+                    m   views/user/index.php
+                            ->added a second if statement on top of the other in the views/user/index.php 
+                            to catch errors if the query fails to return anything from the database.
+
+                - GIT - Committed @1412

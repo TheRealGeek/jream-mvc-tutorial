@@ -7,10 +7,27 @@ class Database extends PDO
     {
          parent::__construct($DB_TYPE.':host=' .$DB_HOST. ';dbname=' .$DB_NAME, $DB_USER, $DB_PASS); 
     }
+
+
+    /**
+     * @param STRING $sql An SQL string
+     * @param ARRAY $data Parameters to bind
+     * @param CONSTANT $fetchStyle A PDO Fetch style (Associative is default: 'PDO::FETCH_ASSOC' )
+     * @return MIXED 
+     * 
+     */
+    public function select($sql, $data = array(), $fetchStyle = PDO::FETCH_ASSOC){ 
+        $sth = $this->prepare($sql);
+        foreach ($data as $key => $value) {
+            $sth->bindValue(":$key", $value);
+        }
+        $sth->execute();
+        return $sth->fetchAll($fetchStyle);
+    }
     /**
      * insert
-     * @param string $table Name of table to insert into
-     * @param string $data An associative array
+     * @param STRING $table Name of table to insert into
+     * @param STRING $data An associative array
      */
     public function insert($table, $data){
         ksort($data); //not necessary, but JREAM likes things to be alphabetized for reasons.
@@ -24,14 +41,14 @@ class Database extends PDO
             $sth->bindValue(":$key", $value);
         }
 
-        $sth->execute();//erroring on create 
+        $sth->execute();
     }
 
     /**
      * update
-     * @param string $table (Name of table to insert into)
-     * @param string $data (An associative array)
-     * @param string $where (location that the WHERE portion of the query points to)
+     * @param STRING $table (Name of table to insert into)
+     * @param STRING $data (An associative array)
+     * @param STRING $where (location that the WHERE portion of the query points to)
      */
     public function update($table, $data, $where){
         ksort($data);

@@ -9,9 +9,9 @@ class User_Model extends Model
 
     public function userList()//READ
     {
-        $sth = $this->db->prepare('SELECT id, login, role FROM user');
-        $sth->execute();
-        return $sth->fetchAll();
+
+        return $this->db->select('SELECT id, login, role FROM user');
+       
     }
     public function userSingleList($id)//READ
     {
