@@ -9,15 +9,15 @@ class User_Model extends Model
 
     public function userList()//READ
     {
-
-        return $this->db->select('SELECT id, login, role FROM user');
-       
+        return $this->db->select('SELECT id, login, role FROM user'); 
     }
     public function userSingleList($id)//READ
     {
-        $sth = $this->db->prepare('SELECT id, login, password, role FROM user WHERE id = :id'); 
-        $sth->execute(array(':id' => $id));
-        return $sth->fetch();
+        // $sth = $this->db->prepare('SELECT id, login, password, role FROM user WHERE id = :id');
+        // $sth->execute(array(':id' => $id));
+        // return $sth->fetch();
+
+        return $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :$id', array(':id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003
     }
     public function create($data)//CREATE 
     {

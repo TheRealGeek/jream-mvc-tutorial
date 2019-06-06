@@ -49,7 +49,7 @@ were.
                         41        </div>
                             ```
                     This adds a 'user' page if the user 'role' is 'owner'. Otherwise, it hides it.
-                - GIT - Committed.
+                - GIT - Committed. @1314
 
 03.06.2019
             @1005 
@@ -184,7 +184,7 @@ were.
                             ->cleaned up the log and renamed it to the correct file extension and 
                             name
 
-                - GIT - Committed.
+                - GIT - Committed @1005
 04.06.2019  @1016
     Part 6: Password Security
     https://www.youtube.com/watch?v=JmPgJXS7uxA&list=PL7A20112CF84B2229&index=6
@@ -195,8 +195,8 @@ were.
                             ->Created a hash class that takes in an algorithm variable, the data, and a 
                                 salt key and returns the salted and hashed data 
                 
-                - GIT - Committed @1219
-                        Pushed  @1219
+                - GIT - Committed @1016
+
                     
             @1220
                     m   index.php - Modified
@@ -212,7 +212,8 @@ were.
                     m   index.php - Modified
                             ->Required the hash class file and the new constants.php file
 
-                 - GIT - Committed. @1350                  
+                 - GIT - Committed. @1220
+            @1350                  
 
                     m   model/login_model.php - Modified
                             ->Changed the run() password to use the new hash class for new user creation
@@ -229,8 +230,8 @@ were.
                             -> updated the password fields of create() and editSave() to not encrypt 
                                 before sending the information to the user model.
 
-                 - GIT - Committed.  @1458                 
-                 - GIT - Pushed.  @1458  
+                 - GIT - Committed.  @1350                 
+
 
             @1220
     Part 6: Autoloaders
@@ -269,7 +270,7 @@ were.
   
                     m   libs/class.models.php - Modified
                             ->changed the Database class creation to pass the db constants from config/database.php to the construct of Database at /libs/class.database.php as variables of the same name
-                 - GIT - Committed.  @1623  
+                 - GIT - Committed.  @1220  
             @1624
         Part 6: New insert and update methods 
             (to make them more universal and useful)
@@ -285,6 +286,7 @@ were.
                      m   /libs/class.database.php
 
                      Finished the setup for the insert and update fields
+                - GIT - Committed.  @1624 
 05.06.2019  @1611
         Part 7: Improving the layout, code cleanup, minor security improvements, and database wrapper improvements.
         https://www.youtube.com/watch?v=Pz3Oj_fYMn8&list=PL7A20112CF84B2229&index=7
@@ -298,7 +300,7 @@ were.
                     ±   config.php, /config/*
                             ->Created a config.php and combined the contents of the config dir into it
                             ->deleted the config/ dir and all of its contents
-                    - GIT - Committed @1705
+                    - GIT - Committed @1611
 06.06.2019  @946
               -DB-  m   users->user MVC table - Modified
                             changed the 'users' table to 'user' in 
@@ -307,7 +309,7 @@ were.
                                 ->NOTE: this is something I decided to do on my own. His code does not include this function.
                     m   models/login_model - Modified
                             -> Added code that protects user entries with the role of owner from being deleted from the data page.
-                - GIT - Committed @12:22    
+                - GIT - Committed @946    
             @1222
                     m   libs/class.database.php    
                             ->Added a select method in the database class
@@ -317,4 +319,14 @@ were.
                             ->added a second if statement on top of the other in the views/user/index.php 
                             to catch errors if the query fails to return anything from the database.
 
-                - GIT - Committed @1412
+                - GIT - Committed @1212 
+                
+            @1422
+                    m  libs/user_model.php - Modified
+                            ->changed the content of userSinglelist() to the following:
+                                ```
+                                            return $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :$id', array(':id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003
+                                ```
+                                NOTE: this does NOT work as of right now, so I left the code commented and added a comment with the link to that spot in the video
+
+                 - GIT - Committed @1412 
