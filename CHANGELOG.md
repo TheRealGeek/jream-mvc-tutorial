@@ -335,3 +335,4 @@ were.
                             ->added a parameter to the select function to allow for fetch and fetchAll differentiation. The variable is an integer, and it lies between the $sql and the array. 2 is default and creates a fetchAll response. The userSingleList function needs a fetch(), so that one needs a 1 to be passed. 
                             -> added an integer value of 2 on the delete function 
                             ->new select function works
+                -GIT- Reintegrated branches and commit and pushed the fix to the origin @940
