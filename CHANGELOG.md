@@ -330,3 +330,8 @@ were.
                                 NOTE: this does NOT work as of right now, so I left the code commented and added a comment with the link to that spot in the video
 
                  - GIT - Committed @1412 
+07.06.2019  @940
+                    m   libs/class.database.php
+                            ->added a parameter to the select function to allow for fetch and fetchAll differentiation. The variable is an integer, and it lies between the $sql and the array. 2 is default and creates a fetchAll response. The userSingleList function needs a fetch(), so that one needs a 1 to be passed. 
+                            -> added an integer value of 2 on the delete function 
+                            ->new select function works

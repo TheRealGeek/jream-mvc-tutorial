@@ -13,12 +13,10 @@ class User_Model extends Model
     }
     public function userSingleList($id)//READ
     {
-        // $sth = $this->db->prepare('SELECT id, login, password, role FROM user WHERE id = :id');
-        // $sth->execute(array(':id' => $id));
-        // return $sth->fetch();
-
-        return $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :$id', array('id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003
-    }
+    $r= $this->db->select( 'SELECT id, login, password, role FROM user WHERE id = :id',1, array('id'=> $id)); //not working https://youtu.be/Pz3Oj_fYMn8?list=PL7A20112CF84B2229&t=1003 //the array is empty
+    // var_dump($r);
+    return $r;
+        }
     public function create($data)//CREATE 
     {
         $this->db->insert('user', array(
@@ -41,7 +39,7 @@ class User_Model extends Model
     
     public function delete($id) //DELETE
     {
-        $result =$this->db->select( 'SELECT role FROM user WHERE id = :id', array('id' => $id));
+        $result =$this->db->select('SELECT role FROM user WHERE id = :id',2, array('id' => $id));
         // print_r($result);
         // die;
         if ($result[0]['role'] == 'owner')

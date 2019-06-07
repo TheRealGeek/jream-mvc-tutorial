@@ -11,18 +11,30 @@ class Database extends PDO
 
     /**
      * @param STRING $sql An SQL string
+     * @param INTEGER $f The SQL fetchType 2 or 1. 
+     * The default is 2, which converts the select into a 'fetchAll' retrieval. 
+     * 1 sets it to 'fetch'
      * @param ARRAY $data Parameters to bind
      * @param CONSTANT $fetchStyle A PDO Fetch style (Associative is default: 'PDO::FETCH_ASSOC' )
      * @return MIXED 
      * 
      */
-    public function select($sql, $data = array(), $fetchStyle = PDO::FETCH_ASSOC){ 
+    public function select($sql, $f = 2, $array = array(), $fetchStyle = PDO::FETCH_ASSOC){ 
         $sth = $this->prepare($sql);
-        foreach ($data as $key => $value) {
+        foreach ($array as $key => $value) {
             $sth->bindValue("$key", $value);
         }
+        if($f === 1){
+            $fetchType = 'fetch';
+            }
+        elseif($f === 2) {
+            $fetchType = 'fetchAll';
+        }
+        else{
+            echo "Error, problem with fetchType variable, input was '$fetchType', should be 1 or 2";
+        }
         $sth->execute();
-        return $sth->fetchAll($fetchStyle);
+        return $sth->$fetchType($fetchStyle);
     }
     /**
      * insert

@@ -7,8 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
     <link rel="stylesheet" href="<?php echo URL; ?>public/css/default.css">
-    <script type="text/javascript" src="<?php echo URL; ?>public/js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo URL; ?>public/js/custom.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/sunny/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type=" text/javascript" src="<?php echo URL; ?>public/js/custom.js"></script>
+       
     <?php
     if (isset($this->js)) {
         foreach ($this->js as $js) {
@@ -19,14 +23,15 @@
 </head>
 
 <body>
-   <?php Session::init();?> 
-    <div id="header"> <!-- Header -->
+    <?php Session::init(); ?>
+    <div id="header">
+        <!-- Header -->
         <br>
         <?php if (Session::get('loggedIn') == false) : ?>
             <a href="<?php echo URL; ?>index"> Index </a>
             <a href="<?php echo URL; ?>help"> Help </a>
         <?php endif; ?>
-        
+
         <?php if (Session::get('loggedIn') == true) : ?>
             <a href="<?php echo URL; ?>dashboard"> Dashboard </a>
 
