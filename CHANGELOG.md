@@ -336,3 +336,8 @@ were.
                             -> added an integer value of 2 on the delete function 
                             ->new select function works
                 -GIT- Reintegrated branches and commit and pushed the fix to the origin @940
+            @@1114
+                    +   libs/class.form.php File added
+                                    ->added a file to handle form sanitization.
+                                        ->Incomplete as of yet, we'll complete it likely in the next part of the tutorial
+                - GIT - Committed @1114
