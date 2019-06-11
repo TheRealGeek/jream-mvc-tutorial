@@ -17,3 +17,4 @@ define('DB_PASS', '12345');
 define('HASH_GENERAL_KEY', 'MixItUp2000');
 //this is for database passwords only
 define('HASH_PASSWORD_KEY', 'catsFLYhigh2000miles');
+

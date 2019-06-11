@@ -347,4 +347,19 @@ were.
         Part 8: Form Posting
         https://www.youtube.com/watch?v=Pz3Oj_fYMn8&list=PL7A20112CF84B2229&index=8
 
-                    
+                    This was a booger. Follow the tutorial, but don't try to fix why it isn't working. In the form, when you are pulling data from the form in the form.php file, don't do it like he did it
+
+                             $form  ->post('name');
+                                    ->val('minlength', 2);
+
+                    The above did not work for me. Instead, I had to do this:
+
+                            $form->post('name');
+                            $form->val('minlength', 2);
+
+                    For each item. 
+
+                I also changed the names of the contents of the entire libs directory, to make it match with what he has. This ended up being unnecessary to fix an error I was having, but I'm not going to take the time to change it back. 
+
+                - DB - Added a new table called person with columns called personid, name, age, and gender, all of which accept data from the form in test/form.php
+                - GIT - Committed @1611                

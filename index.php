@@ -1,9 +1,11 @@
 <?php
 require 'config.php';
 
+//AUTOLOADER
 //Also spl autoload_register take a look at it if you like
-function __autoload($class){
-    require LIBS . "class.$class.php";
+function __autoload($class)
+{
+    require LIBS . $class .".php";
 }
 
 
